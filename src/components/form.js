@@ -70,7 +70,7 @@ const Form = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...contactInfo }),
+      body: encode({ "form-name": "contactForm", ...contactInfo }),
     })
       .then(() => {
         setContactInfo({
@@ -98,12 +98,10 @@ const Form = () => {
   return (
     <>
       <FormContainer
-        method="post"
-        name="contact"
+        name="contactForm"
         data-netlify="true"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="contact" />
         <label htmlFor="name" className="visually-hidden">
           Name
         </label>
