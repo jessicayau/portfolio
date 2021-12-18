@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "../components";
 import { SendIcon } from "./icons";
@@ -52,47 +52,102 @@ const StyledTextarea = styled.textarea`
 `;
 
 const Form = () => {
+  const [contactInfo, setContactInfo] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [messageStatus, setMessageStatus] = useState("");
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...contactInfo }),
+    })
+      .then(() => {
+        setContactInfo({
+          name: "",
+          email: "",
+          message: "",
+        });
+        setMessageStatus("Thanks for contacting me!");
+        setTimeout(() => setMessageStatus(""), 5000);
+      })
+      .catch(error => {
+        setMessageStatus(`${error} - Try again later`);
+        setTimeout(() => setMessageStatus(""), 5000);
+      });
+  };
+
+  const handleInputChange = e => {
+    const { value, name } = e.target;
+    setContactInfo({
+      ...contactInfo,
+      [name]: value,
+    });
+  };
+
   return (
-    <FormContainer method="post" action="#">
-      <label htmlFor="name" className="visually-hidden">
-        Name
-      </label>
-      <StyledInput
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        maxLength="50"
-        required
-      />
-
-      <label htmlFor="email" className="visually-hidden">
-        Email
-      </label>
-      <StyledInput
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Email"
-        maxLength="320"
-        required
-      />
-
-      <label htmlFor="message" className="visually-hidden">
-        Message
-      </label>
-      <StyledTextarea
-        name="message"
-        id="message"
-        placeholder="Message"
-        required
-      />
-
-      <Button type="submit">
-        Send Message
-        <SendIcon />
-      </Button>
-    </FormContainer>
+    <>
+      <FormContainer
+        method="post"
+        name="contact"
+        data-netlify="true"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <label htmlFor="name" className="visually-hidden">
+          Name
+        </label>
+        <StyledInput
+          type="text"
+          name="name"
+          id="name"
+          value={contactInfo.name}
+          placeholder="Name"
+          maxLength="50"
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="email" className="visually-hidden">
+          Email
+        </label>
+        <StyledInput
+          type="email"
+          name="email"
+          id="email"
+          value={contactInfo.email}
+          placeholder="Email"
+          maxLength="320"
+          onChange={handleInputChange}
+          required
+        />
+        <label htmlFor="message" className="visually-hidden">
+          Message
+        </label>
+        <StyledTextarea
+          name="message"
+          id="message"
+          value={contactInfo.message}
+          placeholder="Message"
+          onChange={handleInputChange}
+          required
+        />
+        <Button type="submit">
+          Send Message
+          <SendIcon />
+        </Button>
+      </FormContainer>
+      {messageStatus}
+    </>
   );
 };
 
