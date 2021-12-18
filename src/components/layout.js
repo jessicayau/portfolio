@@ -5,51 +5,90 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+// import { useStaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
+import { Header, Footer, Intro, Seo, Side, Socials } from "../components";
+import { GlobalStyle } from "../styles";
 
-import Header from "./header"
-import "./layout.css"
+const PageContainer = styled.div`
+  position: ${props => (props.isLoaded ? "static" : "absolute")};
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 5rem;
+  background-color: var(--bg-color);
+  transform: scale(0, 0);
+  animation: animate 600ms ease-in forwards 2s;
+  overflow-x: hidden;
+  z-index: 5;
+`;
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (isLoaded) {
+      if (location.hash) {
+        const id = location.hash.substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView();
         }
       }
     }
-  `)
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [isLoaded, location]);
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+      <Seo title="Jessica" />
+      <GlobalStyle />
+      <div className="root">
+        {isLoaded && (
+          <Header
+          // visible={visible}
+          // siteTitle={data.site.siteMetadata?.title || `Title`}
+          />
+        )}
+        <Intro isLoaded={isLoaded} />
+        <PageContainer isLoaded={isLoaded}>
+          {isLoaded && (
+            <>
+              <main>{children}</main>
+              <Footer />
+            </>
+          )}
+        </PageContainer>
+        {isLoaded && (
+          <Side>
+            <Socials />
+          </Side>
+        )}
       </div>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
