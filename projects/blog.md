@@ -8,6 +8,6 @@ live: "https://jess-blog.herokuapp.com/"
 ---
 
 A fully-functional blog developed with Django that features user authentication, a WYSIWYG rich text editor, an admin dashboard and comment sections, and supports CRUD operations (create, read,
-update, and delete blog posts). All authenicated users are able to leave comments for blog posts, but only admin users are able to create, edit and delete blog posts.
+update, and delete blog posts). All authenticated users are able to leave comments for blog posts, but only admin users are able to create, edit and delete blog posts.
 
 User and blog post data are stored in/retrieved from a PostgreSQL database, and media are stored in AWS S3.

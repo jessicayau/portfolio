@@ -67,11 +67,13 @@ const About = () => {
           </p>
           <p>
             My journey in web development began as a young adult during the days
-            of Xanga, Tumblr, and Asian Avenue. I rediscovered my love for web
-            development a few years ago and since then I have also expanded my
-            knowledge and skillset to include two programming languages,
-            fullstack development, webscraping, automation, and RESTful API
-            development.
+            of Xanga, Tumblr, and Asian Avenue when I customized my own webpages
+            and even implemented some JavaScript to prevent people from
+            right-clicking and "stealing" my source code or images/gifs. I
+            rediscovered my love for web development a few years ago and since
+            then I have also expanded my knowledge and skillset to include two
+            programming languages, fullstack development, webscraping,
+            automation, and RESTful API development.
           </p>
           <p>
             When I'm not coding and building things on the web, I enjoy playing
@@ -88,7 +90,7 @@ const About = () => {
             <li>Python</li>
             <li>Django</li>
             <li>Flask</li>
-            <li>MySQL</li>
+            <li>SQL</li>
             <li>Firebase</li>
             <li>Bootstrap</li>
             <li>Gatsby</li>

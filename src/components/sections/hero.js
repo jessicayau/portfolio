@@ -46,10 +46,10 @@ const HeroSection = styled.section`
     gap: 1rem;
 
     img {
-      max-height: 350px;
       max-width: 350px;
       margin: 0 auto;
     }
+
     .hero-content {
       a {
         max-width: 150px;

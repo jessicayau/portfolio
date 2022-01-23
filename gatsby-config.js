@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Jessica Yau`,
-    description: `Jessica Yau is a developer who designs and builds useful applications and aesthetic, interactive experiences on the web.`,
+    description: `Jessica Yau is a Boston-based software engineer who designs and builds useful applications and aesthetic, interactive experiences with technology.`,
     author: `Jessica Yau`,
     siteUrl: `https://jessicayau.net`,
   },

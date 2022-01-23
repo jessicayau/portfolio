@@ -3,7 +3,14 @@ import styled from "styled-components";
 import { Button } from "../components";
 import { SendIcon } from "./icons";
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
+  .formStatus {
+    margin-top: 2rem;
+    text-align: center;
+  }
+`;
+
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -57,7 +64,7 @@ const Form = () => {
     email: "",
     message: "",
   });
-  const [messageStatus, setMessageStatus] = useState("");
+  const [formStatus, setFormStatus] = useState("");
 
   const encode = data => {
     return Object.keys(data)
@@ -78,12 +85,12 @@ const Form = () => {
           email: "",
           message: "",
         });
-        setMessageStatus("Thanks for contacting me!");
-        setTimeout(() => setMessageStatus(""), 5000);
+        setFormStatus("Thank you for getting in touch!");
+        setTimeout(() => setFormStatus(""), 5000);
       })
       .catch(error => {
-        setMessageStatus(`${error} - Try again later`);
-        setTimeout(() => setMessageStatus(""), 5000);
+        setFormStatus(`${error} - Try again later`);
+        setTimeout(() => setFormStatus(""), 5000);
       });
   };
 
@@ -96,8 +103,8 @@ const Form = () => {
   };
 
   return (
-    <>
-      <FormContainer
+    <FormContainer>
+      <StyledForm
         name="contactForm"
         data-netlify="true"
         onSubmit={handleSubmit}
@@ -143,9 +150,9 @@ const Form = () => {
           Send Message
           <SendIcon />
         </Button>
-      </FormContainer>
-      {messageStatus}
-    </>
+      </StyledForm>
+      <div className="formStatus">{formStatus}</div>
+    </FormContainer>
   );
 };
 
