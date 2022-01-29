@@ -18,17 +18,19 @@ const variables = css`
     --font-secondary: Times, Georgia, "Times New Roman", serif;
 
     --font-color-primary: #000000;
-    --font-color-secondary: #a66a8a;
+    --font-color-secondary: #964571;
     --font-color-tertiary: #383c87;
 
     --bg-color: #ebdadf;
     --intro-bg-color: #000000;
     --header-bg-color: #e8d8dd;
-    --button-bg-color: #a66a8a;
+    --button-bg-color: #964571;
+    --button-color: #ebdadf;
     --button-hover-bg-color: #383c87;
     --button-hover-color: #ebdadf;
     --button-bg-color-secondary: #ebdadf;
-    --icon-hover-color: #a66a8a;
+    --button-color-secondary: #000000;
+    --icon-hover-color: #964571;
     --border-color: #e1bcca;
 
     --border-radius: 5px;

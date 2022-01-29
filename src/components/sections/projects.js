@@ -122,10 +122,12 @@ const ProjectLink = styled.a`
   svg {
     height: 28px;
     width: 28px;
-
-    &:hover {
+    transition: all 250ms ease;
+  }
+  &:hover {
+    svg {
       color: var(--icon-hover-color);
-      transform: scale(1.1);
+      transform: scale(1.2);
       transition: all 250ms ease;
     }
   }
@@ -189,7 +191,7 @@ const Projects = () => {
                 navigation
                 pagination={{ clickable: true }}
                 autoplay={{
-                  delay: 3000,
+                  delay: 3500,
                 }}
                 effect="fade"
               >
@@ -218,7 +220,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                   >
                     <GithubIcon />
-                    Code
+                    Source Code
                   </ProjectLink>
                   <ProjectLink
                     href={live}
@@ -227,7 +229,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                   >
                     <LinkIcon />
-                    Live
+                    Live Preview
                   </ProjectLink>
                 </div>
               </ProjectText>

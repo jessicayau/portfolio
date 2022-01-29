@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Button, Toggle } from "../components";
+import { Toggle } from "../components";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -116,15 +116,6 @@ const Header = () => {
         <a className="nav-link" href="/#contact" onClick={handleMenu}>
           Contact
         </a>
-        <Button
-          as="a"
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleMenu}
-        >
-          Resume
-        </Button>
       </Nav>
       <Toggle
         toggleMenu={() => setMenuIsOpen(prev => !prev)}

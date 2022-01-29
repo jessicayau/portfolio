@@ -20,22 +20,26 @@ const HeroSection = styled.section`
       opacity: 0;
       animation: fadeInAndUp 1s ease forwards;
     }
+
     h1 {
       opacity: 0;
       animation: fadeInAndUp 1s ease forwards 0.5s;
     }
+
     h2 {
       max-width: 1200px;
       opacity: 0;
       animation: fadeInAndUp 1s ease forwards 1s;
     }
+
     a {
       margin-top: 1rem;
       opacity: 0;
       animation: fadeInAndUp 1s ease forwards 1.5s;
     }
+
     .resume-button {
-      display: none;
+      margin-left: 1rem;
     }
   }
 
@@ -55,15 +59,6 @@ const HeroSection = styled.section`
         max-width: 150px;
         padding: 0.8rem;
         margin-right: 0.5rem;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero-content {
-      .resume-button {
-        display: inline-block;
-        margin-right: 0;
       }
     }
   }

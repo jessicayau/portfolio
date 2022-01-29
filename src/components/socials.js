@@ -24,10 +24,12 @@ const StyledSocials = styled.div`
     display: flex;
 
     a {
+      transition: all 300ms ease-in-out;
+
       &:hover {
         color: var(--icon-hover-color);
         transform: scale(1.3);
-        transition: all 500ms ease;
+        transition: all 300ms ease-in-out;
       }
     }
   }

@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const primaryButtonStyles = css`
+  color: var(--button-color);
   background-color: var(--button-bg-color);
   border: 2px solid var(--button-bg-color);
 `;
 
 const secondaryButtonStyles = css`
+  color: var(--button-color-secondary);
   background-color: var(--button-bg-color-secondary);
   border: 2px solid var(--button-bg-color);
 `;
@@ -28,6 +30,7 @@ const StyledButton = styled.button`
   font-size: var(--font-md);
   font-weight: 700;
   cursor: pointer;
+  transition: all 500ms ease;
 
   ${getButtonStyles}
 
