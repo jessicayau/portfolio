@@ -36,9 +36,9 @@ const GlobalStyle = createGlobalStyle`
   
 
   html {
-      width: 100%;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   *, *::before, *::after {
@@ -52,7 +52,6 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     color: var(--font-color-primary);
     font-family: var(--font-primary);
-    overflow-x: hidden;
   }
 
   h1,
@@ -63,6 +62,11 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 .8rem 0;
     font-weight: 600;
+  }
+  
+  .root {
+    padding-top: 5rem;
+    background-color: var(--bg-color);
   }
 
   .medium-heading {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Toggle } from "../components";
@@ -101,10 +102,20 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  useEffect(() => {
+    if (menuIsOpen) {
+      document.body.style.overflowY = "hidden";
+      document.body.style.paddingRight = "15px";
+    } else {
+      document.body.style.overflowY = "auto";
+      document.body.style.paddingRight = "0";
+    }
+  }, [menuIsOpen]);
+
   return (
     <StyledHeader className="header" visible={visible}>
       <div className="logo">
-        <a href="/">JY</a>
+        <Link to="/">JY</Link>
       </div>
       <Nav menuIsOpen={menuIsOpen}>
         <a className="nav-link" href="/#about" onClick={handleMenu}>
