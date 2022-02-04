@@ -14,7 +14,7 @@ const StyledIntro = styled.div`
     color: var(--font-color-secondary);
     opacity: 0;
     font-size: clamp(4rem, 15vw, 15rem);
-    animation: fadeIn 2s ease forwards;
+    animation: fadeInSlideUp 2s ease forwards;
   }
 `;
 

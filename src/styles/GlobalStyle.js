@@ -183,8 +183,17 @@ const GlobalStyle = createGlobalStyle`
       transform: scale(1, 1);
     }
   }
+  
+  @keyframes fadeIn { 
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
-  @keyframes fadeIn {
+  @keyframes fadeInSlideUp {
     from {
       opacity: 0;
       transform: translateY(50%);

@@ -105,10 +105,8 @@ const Header = () => {
   useEffect(() => {
     if (menuIsOpen) {
       document.body.style.overflowY = "hidden";
-      document.body.style.paddingRight = "15px";
     } else {
       document.body.style.overflowY = "auto";
-      document.body.style.paddingRight = "0";
     }
   }, [menuIsOpen]);
 
