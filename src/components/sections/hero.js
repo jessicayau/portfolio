@@ -11,10 +11,6 @@ const HeroSection = styled.section`
   align-items: center;
   padding: 4rem 5%;
 
-  img {
-    animation: 2.5s fadeIn;
-  }
-
   .hero-content {
     p {
       font-size: var(--font-xl);
@@ -82,9 +78,7 @@ const Hero = () => {
       <StaticImage
         src="../../images/girl-transparent.png"
         alt="cartoon girl"
-        backgroundColor="transparent"
-        placeholder="backgroundColor"
-        // placeholder="blurred"
+        placeholder="blurred"
       />
       <div className="hero-content">
         <p>Hello, I'm</p>
