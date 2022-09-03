@@ -4,7 +4,6 @@ id: 3
 stack: ["Python", "Django", "Bootstrap", "CKEditor", "PostgreSQL", "AWS S3"]
 images: "images/blog"
 code: "https://github.com/jessicayau/jess-blog"
-live: "https://jess-blog.herokuapp.com/"
 ---
 
 A fully-functional blog developed with Django that features user authentication, a WYSIWYG rich text editor, an admin dashboard and comment sections, and supports CRUD operations (create, read,
