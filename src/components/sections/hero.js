@@ -90,16 +90,6 @@ const Hero = () => {
         <Button as="a" href="/#projects">
           View Projects
         </Button>
-        <Button
-          as="a"
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="resume-button"
-          secondary
-        >
-          Resume
-        </Button>
       </div>
     </HeroSection>
   );
