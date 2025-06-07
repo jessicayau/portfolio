@@ -6,7 +6,7 @@
   "author": "Jessica Yau <jess.yau051@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.2",
-    "gatsby": "^4.2.0",
+    "gatsby": "^5.14.3",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",
     "gatsby-plugin-image": "^2.2.0",
     "gatsby-plugin-manifest": "^4.2.0",
